@@ -1,29 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using MySql.Data.MySqlClient;
 using Teste_tecnico.Models;
+using Teste_tecnico.Funcoes;
+
 
 namespace Teste_tecnico
 {
     public partial class Default : System.Web.UI.Page
     {
+        refatoradoEntitiesModel db = new refatoradoEntitiesModel();
+        Uteis funcoes = new Uteis();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack){
                 BindGrid();
             }
         }
-
-        teste_tecnicoEntitiesModel db = new teste_tecnicoEntitiesModel();
+        
 
         private void BindGrid()
         {
-            var query = from doc in db.arquivo.ToList()
+            var query = from doc in db.tb_documentos.ToList()
                         orderby doc.titulo ascending
                         select doc;
 
@@ -34,63 +33,35 @@ namespace Teste_tecnico
             }
         }
 
-        protected void btnSalvar_Click(object sender, EventArgs e)
+        protected void BtnSalvar_Click(object sender, EventArgs e)
         {   
             try
             {
-                //Codigo transformado em variavel a parte pois o EF não estava convertendo os valoes. **microsoft forum
                 int codigo = Convert.ToInt32(txtCodigo.Text);
-
-                if (!db.arquivo.Any(x => x.codigo == codigo))
+               
+                if (!db.tb_documentos.Any(x => x.codigo == codigo))
                 {
-                    if (Arquivo.HasFile)
+                    
+                    if ((funcoes.verificaArquivo(Arquivo)))
                     {
-                        string extension;
-                        string fileName = Arquivo.FileName;
-                        string savePath = "c:\\temp\\uploads\\";
-                        Boolean isPermited = false;
-
-                        extension = Path.GetExtension(fileName);
-                        switch (extension)
+                        tb_documentos arquivo = new tb_documentos();
                         {
-                            case ".pdf":
-                                isPermited = true;
-                                break;
-                            case ".doc":
-                                isPermited = true;
-                                break;
-                            case ".xls":
-                                isPermited = true;
-                                break;
-                        }
-
-                        if (isPermited)
-                        {
-                            SaveFile(Arquivo.PostedFile);
-
-                            arquivo arquivo = new arquivo();
                             arquivo.codigo = Convert.ToInt32(txtCodigo.Text);
                             arquivo.titulo = txtTitulo.Text;
                             arquivo.processo = txtProcesso.Text;
                             arquivo.categoria = txtCategoria.Text;
-                            arquivo.arquivo1 = savePath + Arquivo.FileName;
-                            db.arquivo.Add(arquivo);
+                            arquivo.arquivo = funcoes.SaveFile(Arquivo.PostedFile); 
+                            db.tb_documentos.Add(arquivo);
                             db.SaveChanges();
                             BindGrid();
-
-                            txtCodigo.Text = string.Empty;
-                            txtTitulo.Text = string.Empty;
-                            txtProcesso.Text = string.Empty;
-                            txtCategoria.Text = string.Empty;
+                            LimpaCampos();
+                            lblSucesso.Text = "Arquivo enviado com sucesso";
                         }
-                        else
-                        {
-                            lblError.Text = "Apenas arquivos do tipo PDF, DOC e XLS";
-                        }
+                        
                     }
                     else
                     {
-                        lblError.Text = "Selecione um arquivo.";
+                        lblError.Text = "Arquivo não selecionado ou fora do formato .PDF, .XLS ou .DOC.";
                     }
                 }
                 else
@@ -104,7 +75,13 @@ namespace Teste_tecnico
             }
         }
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
+        protected void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpaCampos();
+        }
+        
+
+        void LimpaCampos()
         {
             txtCodigo.Text = string.Empty;
             txtTitulo.Text = string.Empty;
@@ -112,19 +89,9 @@ namespace Teste_tecnico
             txtCategoria.Text = string.Empty;
         }
         
-        void SaveFile(HttpPostedFile file)
-        {
-            string fileName = Arquivo.FileName;
-            string savePath = "c:\\temp\\uploads\\";
-                savePath += fileName;
-                Arquivo.SaveAs(savePath);
-                lblSucesso.Text = "Arquivo enviado com sucesso";
-         }
-            
-        }
 
-
-
+    }
+    
     }
 
 

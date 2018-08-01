@@ -99,15 +99,15 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Models\CadDocModel.Context.tt">
+    <Content Include="Models\ArquivoModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CadDocModel.edmx</DependentUpon>
-      <LastGenOutput>CadDocModel.Context.cs</LastGenOutput>
+      <DependentUpon>ArquivoModel.edmx</DependentUpon>
+      <LastGenOutput>ArquivoModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\CadDocModel.tt">
+    <Content Include="Models\ArquivoModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CadDocModel.edmx</DependentUpon>
-      <LastGenOutput>CadDocModel.cs</LastGenOutput>
+      <DependentUpon>ArquivoModel.edmx</DependentUpon>
+      <LastGenOutput>ArquivoModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -131,12 +131,12 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
-    <EntityDeploy Include="Models\CadDocModel.edmx">
+    <EntityDeploy Include="Models\ArquivoModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CadDocModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>ArquivoModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\CadDocModel.edmx.diagram">
-      <DependentUpon>CadDocModel.edmx</DependentUpon>
+    <Content Include="Models\ArquivoModel.edmx.diagram">
+      <DependentUpon>ArquivoModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -163,26 +163,30 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Funcoes\Uteis.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\arquivo.cs">
-      <DependentUpon>CadDocModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CadDocModel.Context.cs">
+    <Compile Include="Models\ArquivoModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CadDocModel.Context.tt</DependentUpon>
+      <DependentUpon>ArquivoModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CadDocModel.cs">
+    <Compile Include="Models\ArquivoModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CadDocModel.tt</DependentUpon>
+      <DependentUpon>ArquivoModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CadDocModel.Designer.cs">
+    <Compile Include="Models\ArquivoModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CadDocModel.edmx</DependentUpon>
+      <DependentUpon>ArquivoModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_documentos.cs">
+      <DependentUpon>ArquivoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_fileupload.cs">
+      <DependentUpon>ArquivoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

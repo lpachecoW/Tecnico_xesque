@@ -88,8 +88,8 @@
              </tr>
             <tr>  
                 <td colspan="3">  
-                    <asp:Button type="button" CssClass="btn btn-success" ID="btnSalvar" runat="server" Text="Salvar" ValidationGroup="vg1" OnClick="btnSalvar_Click" />  
-                    <asp:Button type="button" CssClass="btn btn-danger" ID="btnCancelar" runat="server" Text="Cancelar" ValidationGroup="vg2" OnClick="btnCancelar_Click" />  
+                    <asp:Button type="button" CssClass="btn btn-success" ID="btnSalvar" runat="server" Text="Salvar" ValidationGroup="vg1" OnClick="BtnSalvar_Click" />  
+                    <asp:Button type="button" CssClass="btn btn-danger" ID="btnCancelar" runat="server" Text="Cancelar" ValidationGroup="vg2" OnClick="BtnCancelar_Click" />  
                 </td>  
             </tr>  
         </table>  
@@ -122,7 +122,7 @@
                 </asp:TemplateField>  
                 <asp:TemplateField HeaderText="Arquivo"  ControlStyle-CssClass="text-primary">  
                     <ItemTemplate>  
-                        <asp:HyperLink ID="hlDownload" runat="server" BorderStyle="None" Style="text-decoration: none;" Target="_self" Text="Download" NavigateUrl='<%#Eval("Arquivo1") %>'>
+                        <asp:HyperLink ID="hlDownload" runat="server" BorderStyle="None" Style="text-decoration: none;" Target="_self" Text="Download" NavigateUrl='<%#Eval("Arquivo") %>'>
                         </asp:HyperLink>
                     </ItemTemplate>  
                 </asp:TemplateField>  

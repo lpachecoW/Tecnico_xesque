@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Pacheco\source\repos\Teste_tecnico\Teste_tecnico\Models\CadDocModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Pacheco\source\repos\Tecnico_xesque\Teste_tecnico\Models\ArquivoModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
