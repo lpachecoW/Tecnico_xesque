@@ -4,9 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="49e89c2c2df4441ab587be0f37f7a125" Name="Diagram1">
-        <EntityTypeShape EntityType="DocumentosModel.tb_documentos" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DocumentosModel.tb_fileupload" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="1c6c3cdd92224780b84f03362e7641db" Name="Diagram1">
+        <EntityTypeShape EntityType="teste_tecnicoModel.arquivo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

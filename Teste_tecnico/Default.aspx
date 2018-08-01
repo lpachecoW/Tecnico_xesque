@@ -122,7 +122,7 @@
                 </asp:TemplateField>  
                 <asp:TemplateField HeaderText="Arquivo"  ControlStyle-CssClass="text-primary">  
                     <ItemTemplate>  
-                        <asp:HyperLink ID="hlDownload" runat="server" BorderStyle="None" Style="text-decoration: none;" Target="_self" Text="Download" NavigateUrl='<%#Eval("Arquivo") %>'>
+                        <asp:HyperLink ID="hlDownload" runat="server" BorderStyle="None" Style="text-decoration: none;" Target="_self" Text="Download" NavigateUrl='<%#Eval("Arquivo1") %>'>
                         </asp:HyperLink>
                     </ItemTemplate>  
                 </asp:TemplateField>  

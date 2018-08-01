@@ -12,10 +12,13 @@ namespace Teste_tecnico.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_fileupload
+    public partial class arquivo
     {
         public int id { get; set; }
-        public string filename { get; set; }
-        public string path { get; set; }
+        public int codigo { get; set; }
+        public string titulo { get; set; }
+        public string processo { get; set; }
+        public string categoria { get; set; }
+        public string arquivo1 { get; set; }
     }
 }

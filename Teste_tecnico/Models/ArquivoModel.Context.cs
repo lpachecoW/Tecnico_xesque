@@ -13,10 +13,10 @@ namespace Teste_tecnico.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class refatoradoEntitiesModel : DbContext
+    public partial class refatoracaoEntitiesModel : DbContext
     {
-        public refatoradoEntitiesModel()
-            : base("name=refatoradoEntitiesModel")
+        public refatoracaoEntitiesModel()
+            : base("name=refatoracaoEntitiesModel")
         {
         }
     
@@ -25,7 +25,6 @@ namespace Teste_tecnico.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<tb_documentos> tb_documentos { get; set; }
-        public virtual DbSet<tb_fileupload> tb_fileupload { get; set; }
+        public virtual DbSet<arquivo> arquivo { get; set; }
     }
 }

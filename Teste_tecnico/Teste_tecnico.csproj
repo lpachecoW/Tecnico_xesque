@@ -167,6 +167,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\arquivo.cs">
+      <DependentUpon>ArquivoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ArquivoModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -181,12 +184,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ArquivoModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tb_documentos.cs">
-      <DependentUpon>ArquivoModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tb_fileupload.cs">
-      <DependentUpon>ArquivoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

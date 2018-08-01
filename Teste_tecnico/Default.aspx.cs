@@ -9,7 +9,7 @@ namespace Teste_tecnico
 {
     public partial class Default : System.Web.UI.Page
     {
-        refatoradoEntitiesModel db = new refatoradoEntitiesModel();
+        refatoracaoEntitiesModel db = new refatoracaoEntitiesModel();
         Uteis funcoes = new Uteis();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -22,7 +22,7 @@ namespace Teste_tecnico
 
         private void BindGrid()
         {
-            var query = from doc in db.tb_documentos.ToList()
+            var query = from doc in db.arquivo.ToList()
                         orderby doc.titulo ascending
                         select doc;
 
@@ -39,19 +39,19 @@ namespace Teste_tecnico
             {
                 int codigo = Convert.ToInt32(txtCodigo.Text);
                
-                if (!db.tb_documentos.Any(x => x.codigo == codigo))
+                if (!db.arquivo.Any(x => x.codigo == codigo))
                 {
                     
                     if ((funcoes.verificaArquivo(Arquivo)))
                     {
-                        tb_documentos arquivo = new tb_documentos();
+                        arquivo arquivo = new arquivo();
                         {
                             arquivo.codigo = Convert.ToInt32(txtCodigo.Text);
                             arquivo.titulo = txtTitulo.Text;
                             arquivo.processo = txtProcesso.Text;
                             arquivo.categoria = txtCategoria.Text;
-                            arquivo.arquivo = funcoes.SaveFile(Arquivo.PostedFile); 
-                            db.tb_documentos.Add(arquivo);
+                            arquivo.arquivo1 = funcoes.SaveFile(Arquivo.PostedFile); 
+                            db.arquivo.Add(arquivo);
                             db.SaveChanges();
                             BindGrid();
                             LimpaCampos();
